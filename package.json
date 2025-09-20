@@ -1,0 +1,15 @@
+{
+  "name": "generator-try-fpts",
+  "version": "1.0.0",
+  "description": "Playground for trying fp-ts",
+  "main": "generators/app/index.js",
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "7.5.1"
+  }
+}

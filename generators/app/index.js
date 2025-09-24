@@ -1,14 +1,20 @@
+const os = require('os');
+const path = require('path');
 const GeneratorModule = require('yeoman-generator');
 const { inputObjects } = require('./inputs.js');
 const { getInput } = require('./utils.js');
+const { AbsoluteConfig } = require('./config.js')
 const Generator = GeneratorModule.default
 
 module.exports = class extends Generator {
 
   constructor(args, opts) {
     super(args, opts);
-
-    this.inputObjects = inputObjects
+    
+    this.GENERATOR_NAME = 'try-fpts'
+    this.ABSOLUTE_CONFIG_FILENAME = path.join(os.homedir(), `.yo-rc.${this.GENERATOR_NAME}.json`)
+    this.absoluteConfig = new AbsoluteConfig(this.ABSOLUTE_CONFIG_FILENAME)
+    this.inputObjects = inputObjects(this)
   }
 
   async prompting() {
@@ -18,6 +24,7 @@ module.exports = class extends Generator {
       this.inputValues[inputObject.name] = await getInput(this, inputObject)
     }
 
+    this.absoluteConfig.set('projectParentPath', this.inputValues['projectParentPath'])
     this.projectDirectoryName = cleanProjectDirectoryName(new Date().toISOString(), this.inputValues.projectName)
   }
 

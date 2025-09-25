@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "nodemon --watch ./src/index.ts -q --exec 'tsc -p tsconfig.json && clear && sleep 0.1 &&  node ./dist/index.js'"
+    "start": "tsc -p tsconfig.json && node ./dist/index.js",
+    "watch": "nodemon --watch ./src/index.ts -q --exec 'tsc -p tsconfig.json && clear && sleep 0.1 &&  node ./dist/index.js'"
   },
   "author": "",
   "license": "ISC",

@@ -26,10 +26,11 @@ function inputObjects(generator){
       }
     }, 
     {
-      name: 'openInVsCode', 
-      message: 'Open playground directory in VSCode?',
-      type: 'confirm', 
-      default: true,
+      name: 'selectedEditorId', 
+      message: 'How do you want to open your package?',
+      type: 'list', 
+      choices: generator.absoluteConfig.get('editors').map(x => ({ name: x.name, value: x.id })),
+      default: generator.absoluteConfig.get('selectedEditorId'),
     }
   ]
 } 

@@ -8,7 +8,7 @@ class AbsoluteConfig {
    * Creates an instance of the Config class.
    * @param {string} filePath The absolute path to the JSON configuration file.
    */
-  constructor(filePath) {
+  constructor(filePath, initialConfig = {}) {
     this.filePath = filePath;
 
     // 1. Ensure the directory exists.
@@ -21,7 +21,7 @@ class AbsoluteConfig {
     // 2. Ensure the file exists.
     if (!fs.existsSync(this.filePath)) {
       // Create it with an empty JSON object if it's missing.
-      this._write({});
+      this._write(initialConfig);
     }
   }
 

@@ -9,38 +9,15 @@
 
 <h4 align="center">Yeoman scaffolding playground for trying fp-ts with minimum effort.</h4>
 
-<!-- <p align="center">
-  <a href="https://badge.fury.io/js/electron-markdownify">
-    <img src="https://badge.fury.io/js/electron-markdownify.svg"
-         alt="Gitter">
-  </a>
-  <a href="https://gitter.im/amitmerchant1990/electron-markdownify"><img src="https://badges.gitter.im/amitmerchant1990/electron-markdownify.svg"></a>
-  <a href="https://saythanks.io/to/bullredeyes@gmail.com">
-      <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
-  </a>
-  <a href="https://www.paypal.me/AmitMerchant">
-    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
-  </a>
-</p> -->
 
 <p align="center">
-  <a href="#key-features">Key Features</a> •
-  <a href="#requirements">Requirements</a> •
   <a href="#how-to-use">How To Use</a> •
+  <a href="#requirements">Requirements</a> •
   <a href="#how-to-develop">How to Develop</a> •
   <a href="#support">Support</a> •
-  <a href="#license">License</a>
+  <a href="#license">License</a> •
+  <a href="#credits">Credits</a>
 </p>
-
-<!-- ![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif) -->
-
-## Key Features
-
-* Yeoman generator for scaffolding fp-ts playground.
-* Minimum interaction. 
-  - Run `yo try-fpts` and start playing.
-* Scaffold ephemeral projects. 
-  - Each scaffolded directory starts with a chronological number and ends with the project name. (e.g. `20250920194731_try_fpts`).
 
 ## Requirements
 
@@ -49,42 +26,45 @@ This generator assumes you have these already setup:
 - [Node.js](https://nodejs.org/)
 - [Yeomon](https://yeoman.io/)
 
-## How To Use
+## How to use
 
-Run below and answer some questions:
-
-```bash
+Run below and answer questions one by one:
+```sh
 yo try-fpts
 ```
+Or answer everything at once:
+```sh
+yo try-fpts --projectParentPath ~/try-playground
+            --projectName try-fpts
+            --selectedEditorId vscode
+```
 
-## How to Develop
+## How to use locally
 
 Clone and link the project:
 
-```bash
-git clone https://
-cd generator-try-fpts && npm link
+```sh
+git clone https://github.com/webvv/generator-try-fpts.git
+cd generator-try-fpts
+npm install
+npm link
 ```
 
-Now go to the directory you want to scaffold a project and run below:
+You are now ready to scaffold from your local try-fpts generator:
 
-```bash
+```sh
 yo try-fpts
 ```
 
-## Support
+## Support ♥️
 
 If you like this project and it helped you, please consider supporting me on <a href="https://www.patreon.com/webvv" target="_blank">Patreon</a>.
-
-## You may also like...
-
-- [Webvv YouTube](https://youtube.com/webvv) - Youtube channel teaching Software Engineering concepts
 
 ## License
 
 MIT
 
----
+## Credits
 > Author [Sahand Javid]() &nbsp;&middot;&nbsp;
 > GitHub [@webvv](https://github.com/webvv) &nbsp;&middot;&nbsp;
 > Youtube [webvv](https://youtube.com/webvv)

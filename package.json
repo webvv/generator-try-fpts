@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Playground for trying fp-ts",
   "main": "generators/app/index.js",
+  "author": "Sahand Javid",
+  "license": "MIT",
   "files": [
     "generators"
   ],

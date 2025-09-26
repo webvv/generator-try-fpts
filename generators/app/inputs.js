@@ -29,7 +29,10 @@ function inputObjects(generator){
       name: 'selectedEditorId', 
       message: 'How do you want to open your package?',
       type: 'list', 
-      choices: generator.absoluteConfig.get('editors').map(x => ({ name: x.name, value: x.id })),
+      choices: [
+        { name: 'None', value: '' }, 
+        ...generator.absoluteConfig.get('editors').map(x => ({ name: x.name, value: x.id }))
+      ],
       default: generator.absoluteConfig.get('selectedEditorId'),
     }
   ]

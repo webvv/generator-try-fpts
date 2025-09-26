@@ -7,12 +7,6 @@ function initialConfig(generator) {
     selectedEditorId: '',
     editors: [
       {
-        id: 'echo',
-        name: 'Show Package path',
-        command: 'echo',
-        args: ['$PACKAGE_DIRECTORY']
-      },
-      {
         id: 'mac_finder',
         name: 'Open in Finder (MacOS)',
         command: 'open',
@@ -25,11 +19,17 @@ function initialConfig(generator) {
         args: ['$PACKAGE_INDEX_FILE']
       },
       {
+        id: 'sublime',
+        name: 'Sublime Text',
+        command: 'subl',
+        args: ['$PACKAGE_DIRECTORY', '$PACKAGE_INDEX_FILE']
+      },
+      {
         id: 'vscode',
         name: 'Visual Studio Code',
         command: 'code',
         args: ['$PACKAGE_DIRECTORY', '$PACKAGE_INDEX_FILE']
-      },
+      }
     ]
   }
 }

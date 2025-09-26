@@ -43,7 +43,10 @@ module.exports = class extends Generator {
     this.spawnSync('npm', ['install'], { cwd: this.projectDirectoryPath });
 
     const id = this.inputValues['selectedEditorId']
-    const selectedEditorObject = this.absoluteConfig.get('editors').find(x => x.id === id)
+    const selectedEditorObject = [
+      {id: '', name: 'None', command: 'echo', args: [] },
+      ...this.absoluteConfig.get('editors')
+    ].find(x => x.id === id)
 
     if (!selectedEditorObject) {
       console.log('No editor found')
@@ -61,8 +64,26 @@ module.exports = class extends Generator {
 
       return arg
     })
+    
+    console.log(
+      `\n` + 
+      `Project created in directory:\n` +
+      `  ${this.projectDirectoryPath}\n` +
+      `  \n`
+    )
 
-    this.spawnSync(command, finalArgs);
+    try {
+      this.spawnSync(command, finalArgs);
+    } catch(error) {
+      console.log(
+        `Failed to execute command below:\n` +
+        `   ${command} ${finalArgs.join(' ')}\n` +
+        `   \n` +
+        `Check yor configuration in:\n` +
+        `   ${this.ABSOLUTE_CONFIG_FILENAME}` +
+        `   \n`
+      )
+    }
   }
 };
 

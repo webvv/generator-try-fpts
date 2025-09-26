@@ -1,7 +1,9 @@
 
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="./assets/try_icon.png" alt="Markdownify" width="200"></a>
+  <a href="">
+  <img src="https://raw.githubusercontent.com/webvv/generator-try-fpts/main/assets/try_icon.png" alt="My image" onerror="this.onerror=null; this.src='./assets/try_icon.png';" alt="try-fpts" width="200">
+  </a>
   <br>
   Try fp-ts
   <br>

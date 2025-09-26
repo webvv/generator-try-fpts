@@ -11,8 +11,8 @@
 
 
 <p align="center">
-  <a href="#how-to-use">How To Use</a> •
   <a href="#requirements">Requirements</a> •
+  <a href="#how-to-use">How to Use</a> •
   <a href="#how-to-develop">How to Develop</a> •
   <a href="#support">Support</a> •
   <a href="#license">License</a> •
@@ -26,7 +26,7 @@ This generator assumes you have these already setup:
 - [Node.js](https://nodejs.org/)
 - [Yeomon](https://yeoman.io/)
 
-## How to use
+## How to Use
 
 Run below and answer questions one by one:
 ```sh
@@ -39,7 +39,7 @@ yo try-fpts --projectParentPath ~/try-playground
             --selectedEditorId vscode
 ```
 
-## How to use locally
+## How to Develop
 
 Clone and link the project:
 

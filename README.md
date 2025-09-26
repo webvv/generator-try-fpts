@@ -9,7 +9,7 @@
   <br>
 </h1>
 
-<h4 align="center">Yeoman scaffolding playground for trying fp-ts with minimum effort.</h4>
+<h4 align="center">Yeoman generator for scaffolding playground for trying fp-ts with minimum effort.</h4>
 
 
 <p align="center">

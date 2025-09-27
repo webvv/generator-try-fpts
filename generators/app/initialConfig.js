@@ -1,7 +1,7 @@
-const os = require('os');
-const path = require('path');
+import os from 'os'
+import path from 'path'
 
-function initialConfig(generator) {
+export function initialConfig(generator) {
   return {
     projectParentPath: path.join(os.homedir(), 'try'),
     selectedEditorId: '',
@@ -33,5 +33,3 @@ function initialConfig(generator) {
     ]
   }
 }
-
-module.exports.initialConfig = initialConfig

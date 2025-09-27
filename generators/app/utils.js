@@ -12,7 +12,7 @@
  * @param {array} [config.choices] - Choices (if applicable)
  * @returns {object} - Config object to pass into getInput
  */
-function makeInput(generator, { 
+export function makeInput(generator, { 
   name, 
   message, 
   type = "input", 
@@ -43,7 +43,7 @@ function makeInput(generator, {
  * @param {array} [config.choices] - Choices (for list, rawlist, expand, checkbox)
  * @returns {Promise<any>} - The resolved input value
  */
-async function getInput(generator, { 
+export async function getInput(generator, { 
   name, 
   message, 
   type = "input", 
@@ -77,7 +77,3 @@ async function getInput(generator, {
 
   return answers[name];
 }
-
-
-module.exports.makeInput = makeInput;
-module.exports.getInput = getInput;

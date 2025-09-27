@@ -1,4 +1,4 @@
-function inputObjects(generator){
+export function inputObjects(generator){
   return [
     {
       name: 'projectParentPath',
@@ -37,4 +37,3 @@ function inputObjects(generator){
     }
   ]
 } 
-module.exports.inputObjects = inputObjects

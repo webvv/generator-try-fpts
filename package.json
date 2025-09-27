@@ -1,12 +1,17 @@
 {
   "name": "generator-try-fpts",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Yeoman generator to scaffold a playground for quickly experimenting with fp-ts",
-  "keywords": [ "yeoman-generator", "try", "fp-ts", "webvv" ],
-  "type": "commonjs",
-  "repository": { 
-    "type": "git", 
-    "url": "git+https://github.com/webvv/generator-try-fpts.git" 
+  "keywords": [
+    "yeoman-generator",
+    "try",
+    "fp-ts",
+    "webvv"
+  ],
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webvv/generator-try-fpts.git"
   },
   "license": "MIT",
   "author": "Sahand Javid",

@@ -1,9 +1,8 @@
 // config.js
+import fs from 'fs'
+import path from 'path'
 
-const fs = require('fs');
-const path = require('path');
-
-class AbsoluteConfig {
+export class AbsoluteConfig {
   /**
    * Creates an instance of the Config class.
    * @param {string} filePath The absolute path to the JSON configuration file.
@@ -93,5 +92,3 @@ class AbsoluteConfig {
     }
   }
 }
-
-module.exports.AbsoluteConfig = AbsoluteConfig;

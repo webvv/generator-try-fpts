@@ -1,13 +1,12 @@
-const os = require('os');
-const path = require('path');
-const GeneratorModule = require('yeoman-generator');
-const { getInput } = require('./utils.js');
-const { inputObjects } = require('./inputs.js');
-const { initialConfig } = require('./initialConfig.js')
-const { AbsoluteConfig } = require('./AbsoluteConfig.js')
-const Generator = GeneratorModule.default
+import os from 'os'
+import path from 'path'
+import Generator from 'yeoman-generator'
+import { getInput } from './utils.js'
+import { inputObjects } from './inputs.js'
+import { initialConfig  } from './initialConfig.js'
+import { AbsoluteConfig } from './AbsoluteConfig.js'
 
-module.exports = class extends Generator {
+export default class extends Generator {
 
   constructor(args, opts) {
     super(args, opts);

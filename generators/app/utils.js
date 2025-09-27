@@ -77,3 +77,13 @@ export async function getInput(generator, {
 
   return answers[name];
 }
+
+/**
+ * Make a string gray to be printed in the terminal
+ */
+export function gray(str) {
+  const brightBlack = '\u001b[90m';
+  const reset = '\u001b[0m';
+
+  return `${brightBlack}${str}${reset}`
+}

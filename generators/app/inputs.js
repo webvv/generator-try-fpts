@@ -13,7 +13,7 @@ export function inputObjects(generator){
     },
     { 
       name: 'projectName', 
-      message: 'What is your playground project name?', 
+      message: 'What is your playground project name?\n(Project directory name will be prefixed to avoid collisions):', 
       default: generator.GENERATOR_NAME.replaceAll('-', '_'), 
       validate: input => {
         if (!input || input.trim() === '') {

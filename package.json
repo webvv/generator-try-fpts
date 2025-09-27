@@ -1,7 +1,7 @@
 {
   "name": "generator-try-fpts",
   "version": "1.0.5",
-  "description": "Yeoman generator to scaffold a playground for quickly experimenting with fp-ts",
+  "description": "Yeoman generator to scaffold an ephemeral playground for quickly experimenting fp-ts",
   "keywords": [
     "yeoman-generator",
     "try",

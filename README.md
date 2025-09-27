@@ -9,7 +9,7 @@
   <br>
 </h1>
 
-<h4 align="center">Yeoman generator to scaffold a playground for quickly experimenting with fp-ts.</h4>
+<h4 align="center">Yeoman generator to scaffold an ephemeral playground for quickly experimenting fp-ts.</h4>
 
 
 <p align="center">
@@ -29,6 +29,10 @@ This generator assumes you have these already setup:
 - [Yeomon](https://yeoman.io/)
 
 ## How to Use
+
+> **Note:** The idea behind this generator is to simply open a terminal in any directory, and run `yo try-fpts`. It immediately opens a playground in your favorite editor.
+
+>**Can't see your favorite editor?** Open the configuration file located at `~/.yo-rc.try-fpts.json` and edit the editors field.
 
 Run below and answer questions one by one:
 ```sh

@@ -87,3 +87,13 @@ export function gray(str) {
 
   return `${brightBlack}${str}${reset}`
 }
+
+/**
+ * prefixing the projectName with a formatted datetime
+ */
+export function prefixProjectDirectoryName(isoDateString, projectName) {
+  const [date, timeRaw] = isoDateString.split('T')
+  const [time] = timeRaw.split('.')
+
+  return date.replaceAll('-', '') + time.replaceAll(':', '') + '_' + projectName
+}

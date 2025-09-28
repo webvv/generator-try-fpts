@@ -1,6 +1,7 @@
 import { gray } from './utils.js'
+import { GENERATOR_NAME } from './constants.js'
 
-export function inputObjects(generator){
+export function inputDefs(generator){
   return [
     {
       name: 'projectParentPath',
@@ -16,7 +17,7 @@ export function inputObjects(generator){
     { 
       name: 'projectName', 
       message: `What is your playground project name?\n${gray("(Project directory name will be prefixed to avoid collisions):")}`, 
-      default: generator.GENERATOR_NAME.replaceAll('-', '_'), 
+      default: GENERATOR_NAME.replaceAll('-', '_'), 
       validate: input => {
         if (!input || input.trim() === '') {
           return 'Project name is required';

@@ -1,40 +1,46 @@
 import os from 'os'
 import path from 'path'
 import Generator from 'yeoman-generator'
-import { getInput } from './utils.js'
-import { inputObjects } from './inputs.js'
+import { getInput, prefixProjectDirectoryName } from './utils.js'
+import { inputDefs } from './inputs.js'
 import { initialConfig  } from './initialConfig.js'
 import { AbsoluteConfig } from './AbsoluteConfig.js'
+import { ABSOLUTE_CONFIG_FILENAME, $PACKAGE_DIRECTORY, $PACKAGE_INDEX_FILE } from './constants.js'
 
 export default class extends Generator {
+
+  /* CUSTOM PROPERTIES ON this */
+  // inputDefs
+  // inputVals
+  // absoluteConfig
+  // projectDirectoryName
+  // projectDirectoryPath
 
   constructor(args, opts) {
     super(args, opts);
 
-    this.GENERATOR_NAME = 'try-fpts'
-    this.ABSOLUTE_CONFIG_FILENAME = path.join(os.homedir(), `.yo-rc.${this.GENERATOR_NAME}.json`)
-    this.absoluteConfig = new AbsoluteConfig(this.ABSOLUTE_CONFIG_FILENAME, initialConfig(this))
-    this.inputObjects = inputObjects(this)
+    this.absoluteConfig = new AbsoluteConfig(ABSOLUTE_CONFIG_FILENAME, initialConfig(this))
+    this.inputDefs = inputDefs(this)
   }
 
   async prompting() {
-    this.inputValues = {}
+    this.inputVals = {}
 
-    for (const inputObject of this.inputObjects) {
-      this.inputValues[inputObject.name] = await getInput(this, inputObject)
+    for (const inputObject of this.inputDefs) {
+      this.inputVals[inputObject.name] = await getInput(this, inputObject)
     }
 
-    this.absoluteConfig.set('projectParentPath', this.inputValues['projectParentPath'])
-    this.absoluteConfig.set('selectedEditorId', this.inputValues['selectedEditorId'])
-    this.projectDirectoryName = cleanProjectDirectoryName(new Date().toISOString(), this.inputValues.projectName)
-    this.projectDirectoryPath = path.join(this.inputValues['projectParentPath'], this.projectDirectoryName)
+    this.absoluteConfig.set('projectParentPath', this.inputVals['projectParentPath'])
+    this.absoluteConfig.set('selectedEditorId', this.inputVals['selectedEditorId'])
+    this.projectDirectoryName = prefixProjectDirectoryName(new Date().toISOString(), this.inputVals.projectName)
+    this.projectDirectoryPath = path.join(this.inputVals['projectParentPath'], this.projectDirectoryName)
   }
 
   writing() {
     this.fs.copyTpl(
       this.templatePath('**/*'),
       this.projectDirectoryPath,
-      { projectName: this.inputValues.projectName },
+      { projectName: this.inputVals.projectName },
       {}, 
     );
 
@@ -47,7 +53,7 @@ export default class extends Generator {
   async install() {
     this.spawnSync('npm', ['install'], { cwd: this.projectDirectoryPath });
 
-    const id = this.inputValues['selectedEditorId']
+    const id = this.inputVals['selectedEditorId']
     const selectedEditorObject = [
       {id: '', name: 'None', command: 'echo', args: [] },
       ...this.absoluteConfig.get('editors')
@@ -61,9 +67,9 @@ export default class extends Generator {
     const { command, args } = selectedEditorObject
 
     const finalArgs = args.map(arg => {
-      if (arg === '$PACKAGE_DIRECTORY') {
+      if (arg === $PACKAGE_DIRECTORY) {
         return this.projectDirectoryPath;
-      } else if (arg === '$PACKAGE_INDEX_FILE') {
+      } else if (arg === $PACKAGE_INDEX_FILE) {
         return path.join(this.projectDirectoryPath, 'src', 'index.ts')
       }
 
@@ -85,16 +91,9 @@ export default class extends Generator {
         `   ${command} ${finalArgs.join(' ')}\n` +
         `   \n` +
         `Check yor configuration in:\n` +
-        `   ${this.ABSOLUTE_CONFIG_FILENAME}` +
+        `   ${ABSOLUTE_CONFIG_FILENAME}` +
         `   \n`
       )
     }
   }
 };
-
-function cleanProjectDirectoryName(isoDateString, projectName) {
-  const [date, timeRaw] = isoDateString.split('T')
-  const [time] = timeRaw.split('.')
-
-  return date.replaceAll('-', '') + time.replaceAll(':', '') + '_' + projectName
-}

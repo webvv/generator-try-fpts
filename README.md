@@ -34,13 +34,19 @@ This generator assumes you have these already setup:
 
 >**Can't see your favorite editor?** Open the configuration file located at `~/.yo-rc.try-fpts.json` and edit the editors field.
 
+Install the generator:
+
+```sh
+npm install -g generator-try-fpts
+```
+
 Run below and answer questions one by one:
 ```sh
 yo try-fpts
 ```
 Or answer everything at once:
 ```sh
-yo try-fpts --projectParentPath ~/try-playground \
+yo try-fpts --projectParentPath ~/try \  
             --projectName try_fpts \
             --selectedEditorId vscode
 ```

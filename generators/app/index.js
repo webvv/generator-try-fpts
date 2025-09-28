@@ -34,7 +34,13 @@ export default class extends Generator {
     this.fs.copyTpl(
       this.templatePath('**/*'),
       this.projectDirectoryPath,
-      { projectName: this.inputValues.projectName } 
+      { projectName: this.inputValues.projectName },
+      {}, 
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('.npmrc'),
+      path.join(this.projectDirectoryPath, '.npmrc') ,
     );
   }
 

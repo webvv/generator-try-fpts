@@ -1,11 +1,11 @@
-import { gray } from './utils.js'
-import { GENERATOR_NAME } from './constants.js'
+import { GENERATOR_NAME, ABSOLUTE_CONFIG_FILENAME } from './constants.js'
 
 export function inputDefs(generator){
   return [
     {
       name: 'projectParentPath',
-      message: `What directory paht do you want to scaffold the project?\n${gray("(This path will be saved for your next run):")}`,
+      message: `What directory paht do you want to scaffold the project?`,
+      extraMessage: "(This path will be saved for your next run):",
       default: generator.absoluteConfig.get('projectParentPath') || '',
       validate: input => {
         if (!input || input.trim() === '') {
@@ -16,7 +16,8 @@ export function inputDefs(generator){
     },
     { 
       name: 'projectName', 
-      message: `What is your playground project name?\n${gray("(Project directory name will be prefixed to avoid collisions):")}`, 
+      message: `What is your playground project name?`, 
+      extraMessage: "(Project directory name will be prefixed to avoid collisions):",
       default: GENERATOR_NAME.replaceAll('-', '_'), 
       validate: input => {
         if (!input || input.trim() === '') {
@@ -30,7 +31,8 @@ export function inputDefs(generator){
     }, 
     {
       name: 'selectedEditorId', 
-      message: `How do you want to open your package?\n${gray(`(Add new editors to "${generator.ABSOLUTE_CONFIG_FILENAME}")`)}`,
+      message: `How do you want to open your package?`,
+      extraMessage: `(Add new editors to "${ABSOLUTE_CONFIG_FILENAME}")`,
       type: 'list', 
       choices: [
         { name: 'None', value: '' }, 

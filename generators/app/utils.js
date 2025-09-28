@@ -24,7 +24,6 @@ export function makeInput(generator, {
   generator.option(name, {
     type: type === "confirm" ? Boolean : String, // map Yeoman option type
     description: message,
-    default: def,
   });
 
   return { name, message, type, default: def, validate, choices };
@@ -46,6 +45,7 @@ export function makeInput(generator, {
 export async function getInput(generator, { 
   name, 
   message, 
+  extraMessage,
   type = "input", 
   default: def, 
   validate, 
@@ -57,7 +57,8 @@ export async function getInput(generator, {
     if (validate) {
       const valid = validate(value);
       if (valid !== true) {
-        generator.env.error(`Invalid value for --${name}: ${valid}`);
+        console.error(`Invalid value for --${name}: ${valid}`);
+        throw Error('invalid input')
       }
     }
     return value;
@@ -68,7 +69,7 @@ export async function getInput(generator, {
     {
       type,
       name,
-      message,
+      message: message + (extraMessage ? `\n${gray(extraMessage)}` : '' ),
       default: def,
       validate: validate || (() => true),
       choices, // used only when relevant (list, rawlist, expand, checkbox)

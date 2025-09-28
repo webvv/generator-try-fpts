@@ -1,0 +1,8 @@
+{
+  "files": ["src/index.ts"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "strict": true,
+    "lib": ["ES2015", "dom"]
+  }
+}

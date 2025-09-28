@@ -1,7 +1,7 @@
 import os from 'os'
 import path from 'path'
 import Generator from 'yeoman-generator'
-import { getInput, prefixProjectDirectoryName } from './utils.js'
+import { getInput, makeInput, prefixProjectDirectoryName } from './utils.js'
 import { inputDefs } from './inputs.js'
 import { initialConfig  } from './initialConfig.js'
 import { AbsoluteConfig } from './AbsoluteConfig.js'
@@ -21,6 +21,7 @@ export default class extends Generator {
 
     this.absoluteConfig = new AbsoluteConfig(ABSOLUTE_CONFIG_FILENAME, initialConfig(this))
     this.inputDefs = inputDefs(this)
+    this.inputDefs.forEach(def => makeInput(this, def))
   }
 
   async prompting() {

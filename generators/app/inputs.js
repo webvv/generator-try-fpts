@@ -4,7 +4,7 @@ export function inputDefs(generator){
   return [
     {
       name: 'projectParentPath',
-      message: `What directory paht do you want to scaffold the project?`,
+      message: `What directory path do you want to scaffold the project?`,
       extraMessage: "(This path will be saved for your next run):",
       default: generator.absoluteConfig.get('projectParentPath') || '',
       validate: input => {

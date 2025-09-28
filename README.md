@@ -40,8 +40,8 @@ yo try-fpts
 ```
 Or answer everything at once:
 ```sh
-yo try-fpts --projectParentPath ~/try-playground
-            --projectName try-fpts
+yo try-fpts --projectParentPath ~/try-playground \
+            --projectName try_fpts \
             --selectedEditorId vscode
 ```
 

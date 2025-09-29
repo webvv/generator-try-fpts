@@ -31,10 +31,13 @@ export default class extends Generator {
       this.inputVals[inputObject.name] = await getInput(this, inputObject)
     }
 
-    this.absoluteConfig.set('projectParentPath', this.inputVals['projectParentPath'])
-    this.absoluteConfig.set('selectedEditorId', this.inputVals['selectedEditorId'])
     this.projectDirectoryName = prefixProjectDirectoryName(new Date().toISOString(), this.inputVals.projectName)
     this.projectDirectoryPath = path.join(this.inputVals['projectParentPath'], this.projectDirectoryName)
+  }
+
+  configure() {
+    this.absoluteConfig.set('projectParentPath', this.inputVals['projectParentPath'])
+    this.absoluteConfig.set('selectedEditorId', this.inputVals['selectedEditorId'])
   }
 
   writing() {

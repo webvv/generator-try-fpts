@@ -53,6 +53,8 @@ yo try-fpts --projectParentPath ~/try \
 
 ## How to Develop
 
+> **Note:** You can reset the config file by running `yo try-fpts:reset`.
+
 Clone and link the project:
 
 ```sh

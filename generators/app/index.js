@@ -47,11 +47,6 @@ export default class extends Generator {
       { projectName: this.inputVals.projectName },
       {}, 
     );
-
-    this.fs.copy(
-      this.templatePath('.npmrc'),
-      path.join(this.projectDirectoryPath, '.npmrc') ,
-    );
   }
 
   async install() {

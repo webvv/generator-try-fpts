@@ -47,6 +47,11 @@ export default class extends Generator {
       { projectName: this.inputVals.projectName },
       {}, 
     );
+
+    this.fs.write(
+      path.join(this.projectDirectoryPath, '.npmrc'),
+      'loglevel=silent\n'
+    );
   }
 
   async install() {

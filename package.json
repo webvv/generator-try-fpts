@@ -1,6 +1,6 @@
 {
   "name": "generator-try-fpts",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Yeoman generator to scaffold an ephemeral playground for quickly experimenting fp-ts",
   "keywords": [
     "yeoman-generator",
@@ -20,7 +20,6 @@
     "yeoman-generator": "7.5.1"
   },
   "files": [
-    "generators",
-    "generators/app/templates/.npmrc"
+    "generators"
   ]
 }

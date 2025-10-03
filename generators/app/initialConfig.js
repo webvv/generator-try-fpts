@@ -30,7 +30,19 @@ export function initialConfig(generator) {
         name: 'Visual Studio Code',
         command: 'code',
         args: [$PACKAGE_DIRECTORY, $PACKAGE_INDEX_FILE]
-      }
+      },
+      {
+        id: 'codium',
+        name: 'VSCodium',
+        command: 'codium',
+        args: [$PACKAGE_DIRECTORY, $PACKAGE_INDEX_FILE]
+      },
+      {
+        id: 'zed',
+        name: 'Zed',
+        command: 'zed',
+        args: [$PACKAGE_DIRECTORY, $PACKAGE_INDEX_FILE]
+      },
     ]
   }
 }

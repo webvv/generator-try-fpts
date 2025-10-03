@@ -90,7 +90,7 @@ export default class extends Generator {
     try {
       this.spawnSync(command, finalArgs);
     } catch(error) {
-      console.log(
+      console.error(
         `Failed to execute command below:\n` +
         `   ${command} ${finalArgs.join(' ')}\n` +
         `   \n` +
